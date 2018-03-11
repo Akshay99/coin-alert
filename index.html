@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<script src="src/js/coin.controller.js"></script>
+<script src="https://unpkg.com/ccxt"></script>
+<body>
+<div ng-app="myShoppingList" ng-controller="myCtrl">
+    <select ng-model="selectedSymbol" ng-change="refreshList()">
+        <option ng-repeat="sy in symbol" value="{{sy}}">{{sy}}</option>
+    </select>
+
+    <table border="1">
+        <tr>
+            <td>Sr No.</td>
+            <td>Exchange</td>
+            <td>Symbol</td>
+            <td>High</td>
+            <td>Low</td>
+            <td>Bid</td>
+            <td>ask</td>
+            <td>change</td>
+            <td>percentage</td>
+            <td>baseVolume</td>
+            <td>quoteVolume</td>
+        </tr>
+        <tr ng-repeat="(obj,x) in products track by $index">
+            <td>{{$index}}</td>
+            <td>{{x.exchange}}</td>
+            <td>{{x.symbol}}</td>
+            <td>{{x.high}}</td>
+            <td>{{x.low}}</td>
+            <td>{{x.bid}}</td>
+            <td>{{x.ask}}</td>
+            <td>{{x.change}}</td>
+            <td>{{x.percentage}}</td>
+            <td>{{x.baseVolume}}</td>
+            <td>{{x.quoteVolume}}</td>
+        </tr>
+    </table>
+
+</div>
+
+<p>So far we have made an HTML list based on ccxt exchange resolves promises without cross</p>
+
+</body>
+</html>
